@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Anime-Futuristic Design System for Tanisk's Portfolio
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base Anime-Futuristic Palette */
+    --background: 230 25% 5%;
+    --background-secondary: 235 20% 8%;
+    --foreground: 210 40% 98%;
+
+    /* Card System */
+    --card: 235 20% 8%;
+    --card-hover: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 235 20% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary (Dragon Ball Gold) */
+    --primary: 45 95% 60%;
+    --primary-glow: 45 100% 70%;
+    --primary-foreground: 230 25% 5%;
+
+    /* Secondary (Jujutsu Kaisen Purple) */
+    --secondary: 270 50% 30%;
+    --secondary-glow: 270 60% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent (One Piece Blue) */
+    --accent: 195 85% 45%;
+    --accent-glow: 195 100% 60%;
+    --accent-foreground: 230 25% 5%;
+
+    /* Energy (Black Clover Red) */
+    --energy: 0 85% 55%;
+    --energy-glow: 0 100% 65%;
+    --energy-foreground: 210 40% 98%;
+
+    /* Spirit (Bleach Cyan) */
+    --spirit: 180 85% 50%;
+    --spirit-glow: 180 100% 60%;
+    --spirit-foreground: 230 25% 5%;
+
+    /* Muted */
+    --muted: 240 15% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    /* Destructive */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border */
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 270 60% 50%;
+
+    /* Design System Additions */
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-energy: linear-gradient(135deg, hsl(var(--energy)), hsl(var(--energy-glow)));
+    --gradient-spirit: linear-gradient(135deg, hsl(var(--spirit)), hsl(var(--spirit-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 50%, hsl(var(--background)) 100%);
+    
+    /* Shadows & Glows */
+    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-secondary: 0 0 30px hsl(var(--secondary) / 0.3);
+    --shadow-energy: 0 0 30px hsl(var(--energy) / 0.3);
+    --shadow-spirit: 0 0 30px hsl(var(--spirit) / 0.3);
+    --glow-intense: 0 0 60px hsl(var(--primary) / 0.5);
+    
+    /* Animation Timing */
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Anime-Futuristic Component Classes */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] 
+           hover:scale-105 active:scale-95 font-medium px-6 py-3 rounded-lg;
+  }
+  
+  .btn-energy {
+    @apply bg-energy text-energy-foreground hover:shadow-[var(--shadow-energy)] transition-[var(--transition-smooth)]
+           hover:scale-105 active:scale-95 font-medium px-6 py-3 rounded-lg;
+  }
+  
+  .btn-spirit {
+    @apply bg-spirit text-spirit-foreground hover:shadow-[var(--shadow-spirit)] transition-[var(--transition-smooth)]
+           hover:scale-105 active:scale-95 font-medium px-6 py-3 rounded-lg;
+  }
+  
+  .card-hover {
+    @apply bg-card border border-border rounded-lg p-6 transition-[var(--transition-smooth)]
+           hover:bg-[hsl(var(--card-hover))] hover:border-secondary hover:shadow-[var(--shadow-secondary)]
+           hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  .text-glow-primary {
+    @apply text-primary drop-shadow-[0_0_10px_hsl(var(--primary)/0.5)];
+  }
+  
+  .text-glow-secondary {
+    @apply text-secondary drop-shadow-[0_0_10px_hsl(var(--secondary)/0.5)];
+  }
+  
+  .text-glow-energy {
+    @apply text-energy drop-shadow-[0_0_10px_hsl(var(--energy)/0.5)];
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+  
+  .skill-progress {
+    @apply bg-muted rounded-full h-2 overflow-hidden relative;
+  }
+  
+  .skill-progress-bar {
+    @apply h-full bg-gradient-to-r from-primary to-secondary transition-all duration-1000 ease-out;
+    background: var(--gradient-primary);
+  }
+  
+  .hero-background {
+    background: var(--gradient-hero);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+  
+  .energy-orb {
+    @apply w-4 h-4 rounded-full absolute opacity-70;
+    background: var(--gradient-energy);
+    animation: energyFloat 4s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .shadow-secondary {
+    box-shadow: var(--shadow-secondary);
+  }
+  
+  .shadow-energy {
+    box-shadow: var(--shadow-energy);
+  }
+  
+  .shadow-spirit {
+    box-shadow: var(--shadow-spirit);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.3)); }
+  100% { filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.8)); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes energyFloat {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-10px) translateX(5px);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-5px) translateX(-5px);
+    opacity: 0.9;
+  }
+  75% { 
+    transform: translateY(-15px) translateX(3px);
+    opacity: 0.5;
+  }
+}
